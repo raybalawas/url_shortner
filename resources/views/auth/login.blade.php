@@ -32,18 +32,36 @@
 <body>
     <div class="login-box">
         <h2>Login Here</h2>
+        @if(session('error'))
+        <div style="
+        background:#ffebee;
+        color:#c62828;
+        padding:10px;
+        margin-bottom:15px;
+        border:1px solid #ef9a9a;
+        border-radius:4px;">
+            {{ session('error') }}
+        </div>
+        @endif
         <form action="/login" method="POST">
             @csrf
             <label>Email</label>
             <input
                 type="email"
                 name="email"
-                required>
+                value="{{ old('email') }}">
+            @error('email')
+            <span style="color: red;">{{ $message }}</span>
+            @enderror
+            <br><br>
             <label>Password</label>
             <input
                 type="password"
-                name="password"
-                required>
+                name="password">
+            @error('password')
+            <span style="color: red;">{{ $message }}</span>
+            @enderror
+            <br><br>
             <button type="submit">
                 Login
             </button>

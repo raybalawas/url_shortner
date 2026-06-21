@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,6 +20,13 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
+        if (!Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ])) {
+
+            return back()->withInput()->with('error', 'Invalid email or password');
+        }
         if (Auth::attempt([
             'email' => $request->email,
             'password' => $request->password
