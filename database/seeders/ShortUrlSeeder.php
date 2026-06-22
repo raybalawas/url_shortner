@@ -20,6 +20,7 @@ class ShortUrlSeeder extends Seeder
                 'long_url'  => 'https://example' . $i . '.com',
                 'short_url' => Str::random(7),
                 'user_id'   => rand(2, 10),
+                'hits' => rand(1, 80),
             ]);
         }
     }
