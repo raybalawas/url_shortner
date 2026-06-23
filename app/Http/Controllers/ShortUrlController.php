@@ -16,7 +16,7 @@ class ShortUrlController extends Controller
         // $allurls = ShortUrl::get()->all();
         $allurls = ShortUrl::where('user_id', auth()->id())->latest()->paginate(10);
 
-        // dd($paginated_data);
+        // dd($allurls);
         return view('member.index', compact('allurls'));
     }
 

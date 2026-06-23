@@ -55,7 +55,7 @@
             <tr>
                 <td>{{ url('/s/' . $allurl->short_url) }}</td>
                 <td>{{ $allurl->long_url }}</td>
-                <td>0</td>
+                <td>{{ $allurl->hits }}</td>
                 <td>{{ $allurl->created_at->format("d M 'y") }}</td>
             </tr>
             @endforeach

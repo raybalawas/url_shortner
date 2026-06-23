@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('short_urls', function (Blueprint $table) {
             $table->id();
-            $table->string('long_url');
-            $table->string('short_url');
-            $table->string('user_id');
+            $table->string('long_url')->nullable();
+            $table->string('short_url')->nullable();
+            $table->string('user_id')->nullable();
             $table->integer('hits')->default(0);
             $table->timestamps();
         });
