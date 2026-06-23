@@ -103,13 +103,14 @@ class SuperAdminController extends Controller
         ]);
 
         $hashedPass = Hash::make('InvitedPerson@123');
-        User::create([
+        $a =  User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $hashedPass,
             'role_id' => 2,
             'parent' => auth()->id()
         ]);
+        // dd($a);
 
         return redirect()
             ->route('superadmin.index')

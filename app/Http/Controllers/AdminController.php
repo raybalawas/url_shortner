@@ -20,9 +20,10 @@ class AdminController extends Controller
         $allurls = ShortUrl::where('user_id', auth()->id())->latest()->paginate(10);
         // dd($allurls);
         $allMembers = User::where('parent', auth()->id())->limit(2)->get();
+        $count = User::where('parent', auth()->id())->count();
 
         // dd($allMembers);
-        return view('admin.index', compact('allurls', 'allMembers'));
+        return view('admin.index', compact('allurls', 'allMembers', 'count'));
     }
 
     public function create()

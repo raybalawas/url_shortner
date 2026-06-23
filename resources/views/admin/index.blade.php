@@ -157,7 +157,7 @@
     <div class="pagination-box">
 
         <div>
-            Showing {{ $allurls->firstItem() ?? 0 }} of total {{ $allurls->total() }}
+            Showing {{ $allurls->firstItem() ?? 0 }} of total {{ $count }}
         </div>
         <a href="{{ route('admin.allmembers') }}" style="margin-left: -50%;" class="page-btn">
             View All

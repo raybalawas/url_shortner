@@ -148,7 +148,7 @@
             <tr>
                 <td>{{ url('/s/' . $allurl->short_url) }}</td>
                 <td>{{ $allurl->long_url }}</td>
-                <td>{{ \App\Models\ShortUrl::where('user_id', $allMember->id)->count() }}</td>
+                <td>{{ $allurl->hits }}</td>
                 <td>{{ \App\Models\User::find($allurl->user_id)?->name }}</td>
                 <td>{{ $allurl->created_at->format("d M 'y") }}</td>
             </tr>
